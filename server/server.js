@@ -1,5 +1,10 @@
 const app = require("./app");
 require("dotenv").config();
+const initializeDB = require("./model/defaultDB");
+
+// Initialize default database connection
+
+initializeDB();
 
 const PORT = process.env.PORT || 5000;
 
