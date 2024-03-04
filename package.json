@@ -1,0 +1,17 @@
+{
+  "name": "mern-stack-app",
+  "version": "1.0.0",
+  "description": "Example MERN stack application",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
+  },
+  "author": "jsloader",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^6.3.0"
+  }
+}
