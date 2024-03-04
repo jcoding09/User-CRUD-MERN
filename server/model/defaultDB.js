@@ -1,39 +1,32 @@
 const mongoose = require("mongoose");
+const dbConnect = require("../config/dbconfig");
 const users = require("../model/usersModel");
 
-require("./mongoose");
+const initializeDB = async () => {
+  // Connect to the database
+  dbConnect();
 
-const userOneObjectID = new mongoose.Types.ObjectId();
-const userTwoObjectID = new mongoose.Types.ObjectId();
-const userThreeObjectID = new mongoose.Types.ObjectId();
+  // Check if there are any existing users
+  const existingUsers = await User.find();
 
-const userOne = {
-  _id: userOneObjectID,
-  name: "Alex",
-  email: "Alex@gmail.com",
-  age: 19,
+  // If no users exist, seed the database with default data
+  if (existingUsers.length === 0) {
+    try {
+      // Add three default users
+      const defaultUsers = [
+        { name: "Alex", email: "alex@example.com", age: 30 },
+        { name: "Mike", email: "mike@example.com", age: 25 },
+        { name: "John", email: "johne@example.com", age: 35 },
+      ];
+
+      // Insert the default users into the database
+      await User.insertMany(defaultUsers);
+
+      console.log("Default data seeded successfully");
+    } catch (error) {
+      console.error(`Error seeding default data: ${error.message}`);
+    }
+  }
 };
 
-const userTwo = {
-  _id: userTwoObjectID,
-  name: "Mike",
-  email: "Mike@gmail.com",
-  age: 25,
-};
-
-const userThree = {
-  _id: userThreeObjectID,
-  name: "John",
-  email: "John@gmail.com",
-  age: 31,
-};
-
-const setUpDatabase = async () => {
-  await users.deleteMany();
-  await new users(userOne).save();
-  await new users(userTwo).save();
-  await new users(userThree).save();
-  await mongoose.disconnect();
-};
-
-setUpDatabase();
+module.exports = initializeDB;
