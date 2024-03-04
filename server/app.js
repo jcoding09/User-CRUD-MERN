@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/users", require("./routes/usersRoutes"));
-
+module.exports = app;
 /* Production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
