@@ -1,5 +1,6 @@
 User can do Create, Read, Update & Delete opertion in MERN stack.
 
+```
 User-CRUD-MERN/
 ├── client/ (Frontend code)
 │ ├── node_modules/ (Frontend dependencies)
@@ -34,3 +35,4 @@ User-CRUD-MERN/
 ├── package.json (Main project metadata, scripts, and dependencies)
 ├── package-lock.json (Lock file for npm dependencies)
 └── .gitignore (Specify files and directories to be ignored by Git)
+```
