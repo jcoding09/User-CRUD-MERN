@@ -1,4 +1,5 @@
 User can do Create, Read, Update & Delete opertion in MERN stack.
+User can do POST, GET, PUT & DELETE opertion in MERN stack.
 
 ```
 User-CRUD-MERN/
