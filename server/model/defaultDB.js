@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const dbConnect = require("../config/dbconfig");
-const users = require("../model/usersModel");
+const userModel = require("../model/usersModel");
 
 const initializeDB = async () => {
   // Connect to the database
   dbConnect();
 
   // Check if there are any existing users
-  const existingUsers = await User.find();
+  const existingUsers = await userModel.find();
 
   // If no users exist, seed the database with default data
   if (existingUsers.length === 0) {
@@ -20,7 +20,7 @@ const initializeDB = async () => {
       ];
 
       // Insert the default users into the database
-      await User.insertMany(defaultUsers);
+      await userModel.insertMany(defaultUsers);
 
       console.log("Default data seeded successfully");
     } catch (error) {
