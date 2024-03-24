@@ -1,6 +1,18 @@
 User can do Create, Read, Update & Delete opertion in MERN stack.
 User can do POST, GET, PUT & DELETE opertion in MERN stack.
 
+---
+
+Packages :
+
+For client : react, react-dom, react-scripts, web-vitals, xml-js
+For server : axios, cors, dotenv, express, mongoose, modemon
+
+react-router-dom, react-hot-toast are optional.
+axios, cors, dotenv, nodemon are optional.
+
+---
+
 ```
 User-CRUD-MERN/
 ├── client/ (Frontend code)
